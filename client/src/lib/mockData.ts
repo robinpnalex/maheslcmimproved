@@ -11,6 +11,9 @@ export const studentData = {
   email: "s.mitchell@university.edu"
 };
 
+// todo: remove mock functionality - Replace with real attendance data
+export const attendancePercentage = 82;
+
 export const announcements = [
   {
     id: 1,
