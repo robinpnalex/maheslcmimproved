@@ -1,13 +1,45 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Skeleton } from "@/components/ui/skeleton";
 import StudentIdCard from "@/components/StudentIdCard";
 import AnnouncementCard from "@/components/AnnouncementCard";
 import NoticeboardItem from "@/components/NoticeboardItem";
 import AttendanceSection from "@/components/AttendanceSection";
-import { studentData, announcements, notices, subjectAttendance } from "@/lib/mockData";
+import { useQuery } from "@tanstack/react-query";
 import { Megaphone, Pin } from "lucide-react";
+import type { Student, Announcement, Notice, SubjectAttendance } from "@shared/schema";
+
+interface DashboardData {
+  student: Student;
+  announcements: Announcement[];
+  notices: Notice[];
+  attendance: SubjectAttendance[];
+}
 
 export default function Dashboard() {
+  const { data, isLoading } = useQuery<DashboardData>({
+    queryKey: ['/api/dashboard'],
+  });
+
+  if (isLoading) {
+    return (
+      <div className="p-4 md:p-6 space-y-6">
+        <div>
+          <h1 className="text-2xl font-semibold mb-1">Dashboard</h1>
+          <p className="text-sm text-muted-foreground">Welcome to your student portal</p>
+        </div>
+        <Skeleton className="h-40 w-full" />
+        <Skeleton className="h-32 w-full" />
+        <div className="grid gap-6 lg:grid-cols-2">
+          <Skeleton className="h-64" />
+          <Skeleton className="h-64" />
+        </div>
+      </div>
+    );
+  }
+
+  if (!data) return null;
+
   return (
     <div className="p-4 md:p-6 space-y-6">
       <div>
@@ -16,14 +48,14 @@ export default function Dashboard() {
       </div>
 
       <StudentIdCard
-        name={studentData.name}
-        studentId={studentData.id}
-        photo={studentData.photo}
-        major={studentData.major}
-        semester={studentData.semester}
+        name={data.student.name}
+        studentId={data.student.id}
+        photo={data.student.photo}
+        major={data.student.major}
+        semester={data.student.semester}
       />
 
-      <AttendanceSection subjects={subjectAttendance} />
+      <AttendanceSection subjects={data.attendance} />
 
       <div className="grid gap-6 lg:grid-cols-2">
         <Card>
@@ -34,7 +66,7 @@ export default function Dashboard() {
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
-            {announcements.map((announcement) => (
+            {data.announcements.map((announcement) => (
               <AnnouncementCard
                 key={announcement.id}
                 title={announcement.title}
@@ -55,7 +87,7 @@ export default function Dashboard() {
           </CardHeader>
           <CardContent>
             <ScrollArea className="h-[280px] pr-4">
-              {notices.map((notice) => (
+              {data.notices.map((notice) => (
                 <NoticeboardItem
                   key={notice.id}
                   title={notice.title}

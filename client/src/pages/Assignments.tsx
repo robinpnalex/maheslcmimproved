@@ -1,14 +1,34 @@
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 import AssignmentCard from "@/components/AssignmentCard";
-import { assignments } from "@/lib/mockData";
+import { useQuery } from "@tanstack/react-query";
 import { FileText } from "lucide-react";
+import type { Assignment } from "@shared/schema";
 
 type FilterType = "all" | "pending" | "completed";
 
 export default function Assignments() {
   const [filter, setFilter] = useState<FilterType>("all");
+
+  const { data: assignments, isLoading } = useQuery<Assignment[]>({
+    queryKey: ['/api/assignments'],
+  });
+
+  if (isLoading) {
+    return (
+      <div className="p-4 md:p-6 space-y-6">
+        <div>
+          <h1 className="text-2xl font-semibold mb-1">Assignments</h1>
+          <p className="text-sm text-muted-foreground">Track your coursework and submissions</p>
+        </div>
+        <Skeleton className="h-96 w-full" />
+      </div>
+    );
+  }
+
+  if (!assignments) return null;
 
   const filteredAssignments = assignments.filter((assignment) => {
     if (filter === "all") return true;
