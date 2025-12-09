@@ -1,0 +1,35 @@
+Act as a Senior Frontend Developer. Build a modern, fast, and responsive Student Portal dashboard for a college using React (Vite), Tailwind CSS, and Lucide-React for icons.
+
+The design aesthetic should be "Clean, Minimalist, and Academic." Use a color palette of soft whites, light grays, and a primary accent color (like Royal Blue).
+
+The app should use React Router for navigation and include the following specific structure and features. Use realistic mock data (JSON) for all dynamic content so the UI is fully populated.
+
+1. **Layout Structure:**
+   - A fixed left sidebar navigation (responsive: collapses to a hamburger menu on mobile).
+   - A top header with the User's avatar and a "Logout" button.
+   - A main content area on the right.
+
+2. **Dashboard (Home Page):**
+   - **Student ID Card Widget:** A visually distinct card at the top displaying the student's photo, Name, Student ID Number, Major, and Current Semester. It should look like a digital ID card.
+   - **Important Announcements:** A section highlighting high-priority alerts (e.g., "Campus closed due to weather," "Exam registration open"). Use distinct background colors for urgency.
+   - **Noticeboard:** A scrolling list of general updates (e.g., "Library hours changed," "Chess club meeting").
+
+3. **Academics (Grades) Page:**
+   - Display a summary of the current GPA.
+   - A clean table listing courses, instructors, credit hours, and current letter grades.
+
+4. **Assignments Page:**
+   - A list of upcoming and past assignments.
+   - Include status badges (e.g., "Due Soon" in yellow, "Submitted" in green, "Missing" in red).
+   - Filter buttons for "All," "Pending," and "Completed."
+
+5. **Schedule Page:**
+   - A simple daily timeline view showing classes for the current day with time slots and room numbers.
+
+**Technical Constraints:**
+- Use functional components and hooks.
+- Ensure the UI is fully responsive (mobile-friendly).
+- Use Tailwind for all styling (no custom CSS files unless necessary).
+- Make the typography clean and readable (sans-serif).
+
+Please set up the file structure and generate the full code.
