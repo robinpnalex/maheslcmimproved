@@ -12,7 +12,13 @@ export const studentData = {
 };
 
 // todo: remove mock functionality - Replace with real attendance data
-export const attendancePercentage = 82;
+export const subjectAttendance = [
+  { id: 1, name: "Data Structures", code: "CS301", classesHeld: 24, classesAttended: 22 },
+  { id: 2, name: "Database Systems", code: "CS340", classesHeld: 20, classesAttended: 18 },
+  { id: 3, name: "Computer Networks", code: "CS350", classesHeld: 18, classesAttended: 12 },
+  { id: 4, name: "Software Engineering", code: "CS380", classesHeld: 22, classesAttended: 21 },
+  { id: 5, name: "Linear Algebra", code: "MATH240", classesHeld: 20, classesAttended: 17 },
+];
 
 export const announcements = [
   {

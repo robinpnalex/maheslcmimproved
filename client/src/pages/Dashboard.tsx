@@ -3,8 +3,8 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import StudentIdCard from "@/components/StudentIdCard";
 import AnnouncementCard from "@/components/AnnouncementCard";
 import NoticeboardItem from "@/components/NoticeboardItem";
-import AttendanceCard from "@/components/AttendanceCard";
-import { studentData, announcements, notices, attendancePercentage } from "@/lib/mockData";
+import AttendanceSection from "@/components/AttendanceSection";
+import { studentData, announcements, notices, subjectAttendance } from "@/lib/mockData";
 import { Megaphone, Pin } from "lucide-react";
 
 export default function Dashboard() {
@@ -15,16 +15,15 @@ export default function Dashboard() {
         <p className="text-sm text-muted-foreground">Welcome to your student portal</p>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-[1fr_auto]">
-        <StudentIdCard
-          name={studentData.name}
-          studentId={studentData.id}
-          photo={studentData.photo}
-          major={studentData.major}
-          semester={studentData.semester}
-        />
-        <AttendanceCard percentage={attendancePercentage} />
-      </div>
+      <StudentIdCard
+        name={studentData.name}
+        studentId={studentData.id}
+        photo={studentData.photo}
+        major={studentData.major}
+        semester={studentData.semester}
+      />
+
+      <AttendanceSection subjects={subjectAttendance} />
 
       <div className="grid gap-6 lg:grid-cols-2">
         <Card>
