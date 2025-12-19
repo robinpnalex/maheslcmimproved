@@ -1,11 +1,11 @@
-import type { 
-  Student, 
-  SubjectAttendance, 
-  Announcement, 
-  Notice, 
-  Course, 
-  Assignment, 
-  ScheduleItem 
+import type {
+  Student,
+  SubjectAttendance,
+  Announcement,
+  Notice,
+  Course,
+  Assignment,
+  ScheduleItem
 } from "@shared/schema";
 
 export interface IStorage {
@@ -87,10 +87,31 @@ export class MemStorage implements IStorage {
   ];
 
   private schedule: ScheduleItem[] = [
-    { id: 1, time: "8:00 AM - 9:30 AM", course: "Data Structures & Algorithms", room: "Science Hall 301", code: "CS301" },
-    { id: 2, time: "10:00 AM - 11:30 AM", course: "Database Systems", room: "Tech Center 205", code: "CS340" },
-    { id: 3, time: "1:00 PM - 2:30 PM", course: "Computer Networks", room: "Engineering 410", code: "CS350" },
-    { id: 4, time: "3:00 PM - 4:30 PM", course: "Software Engineering", room: "Tech Center 101", code: "CS380" }
+    // Monday
+    { id: 1, day: "Monday", time: "8:00 AM - 9:30 AM", course: "Data Structures & Algorithms", room: "Science Hall 301", code: "CS301" },
+    { id: 2, day: "Monday", time: "10:00 AM - 11:30 AM", course: "Database Systems", room: "Tech Center 205", code: "CS340" },
+    { id: 3, day: "Monday", time: "1:00 PM - 2:30 PM", course: "Computer Networks", room: "Engineering 410", code: "CS350" },
+    { id: 4, day: "Monday", time: "3:00 PM - 4:30 PM", course: "Software Engineering", room: "Tech Center 101", code: "CS380" },
+
+    // Tuesday
+    { id: 5, day: "Tuesday", time: "9:00 AM - 10:30 AM", course: "Linear Algebra", room: "Math Building 104", code: "MATH240" },
+    { id: 6, day: "Tuesday", time: "11:00 AM - 12:30 PM", course: "Data Structures Lab", room: "Lab Block A", code: "CS301L" },
+    { id: 7, day: "Tuesday", time: "2:00 PM - 3:30 PM", course: "Database Systems", room: "Tech Center 205", code: "CS340" },
+
+    // Wednesday
+    { id: 8, day: "Wednesday", time: "8:00 AM - 9:30 AM", course: "Data Structures & Algorithms", room: "Science Hall 301", code: "CS301" },
+    { id: 9, day: "Wednesday", time: "10:00 AM - 11:30 AM", course: "Computer Networks", room: "Engineering 410", code: "CS350" },
+    { id: 10, day: "Wednesday", time: "1:00 PM - 2:30 PM", course: "Linear Algebra", room: "Math Building 104", code: "MATH240" },
+
+    // Thursday
+    { id: 11, day: "Thursday", time: "9:00 AM - 10:30 AM", course: "Software Engineering", room: "Tech Center 101", code: "CS380" },
+    { id: 12, day: "Thursday", time: "11:00 AM - 1:00 PM", course: "Database Lab", room: "Lab Block B", code: "CS340L" },
+    { id: 13, day: "Thursday", time: "2:00 PM - 3:30 PM", course: "Computer Networks", room: "Engineering 410", code: "CS350" },
+
+    // Friday
+    { id: 14, day: "Friday", time: "8:00 AM - 9:30 AM", course: "Linear Algebra", room: "Math Building 104", code: "MATH240" },
+    { id: 15, day: "Friday", time: "10:00 AM - 11:30 AM", course: "Software Engineering", room: "Tech Center 101", code: "CS380" },
+    { id: 16, day: "Friday", time: "2:00 PM - 4:00 PM", course: "Minor Project Review", room: "Conference Hall 2", code: "PRJ300" }
   ];
 
   async getStudent(): Promise<Student> {

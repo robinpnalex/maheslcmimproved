@@ -65,6 +65,7 @@ export type Assignment = z.infer<typeof assignmentSchema>;
 // Schedule Item
 export const scheduleItemSchema = z.object({
   id: z.number(),
+  day: z.string(),
   time: z.string(),
   course: z.string(),
   room: z.string(),

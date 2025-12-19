@@ -33,7 +33,7 @@ export default function AppSidebar() {
           </div>
           <div>
             <h1 className="font-semibold text-sm">Student Portal</h1>
-            <p className="text-xs text-muted-foreground">University</p>
+            <p className="text-xs text-muted-foreground">MAHE</p>
           </div>
         </div>
       </SidebarHeader>
@@ -61,6 +61,12 @@ export default function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter className="p-4 border-t border-sidebar-border">
+        <div className="mb-4 text-xs text-muted-foreground space-y-1 px-2">
+          <p className="font-medium text-foreground">Contact Us</p>
+          <p>info@mahe.edu</p>
+          <p>+91 123 456 7890</p>
+          <p>Manipal, Karnataka</p>
+        </div>
         <Button
           variant="ghost"
           className="w-full justify-start gap-2"

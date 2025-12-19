@@ -3,6 +3,7 @@ import { Clock, MapPin } from "lucide-react";
 
 interface ScheduleItem {
   id: number;
+  day: string;
   time: string;
   course: string;
   room: string;

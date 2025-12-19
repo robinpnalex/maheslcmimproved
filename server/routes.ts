@@ -4,10 +4,10 @@ import { storage } from "./storage";
 import path from "path";
 import fs from "fs";
 
-export async function registerRoutes(
+export function registerRoutes(
   httpServer: Server,
   app: Express
-): Promise<Server> {
+): Server {
   // Dashboard data (combined endpoint for efficiency)
   app.get("/api/dashboard", async (_req, res) => {
     const [student, attendance, announcements, notices] = await Promise.all([
